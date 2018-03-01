@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="box">60</div>
+
+<script>
+
+    var box = document.getElementById('box');
+
+    var w = new Worker('contdown.js');
+
+    w.postMessage(60);
+
+    w.onmessage = function(event){
+        box.innerHTML = event.data;
+    }
+
+</script>
+</body>
+</html>
